@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 5rem;
+}
+
+.header_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.nav {
+    flex-grow: 1;
+    margin-left: 3rem;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-item a:hover {
+    color: #007BFF;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.search-bar i {
+    font-size: 18px;
+}
+
+.container {
+    align-items: center;
+    width: 100%;
+}
+
+.container img {
+    width: 5rem;
+}
+
+
+/* Media Queries */
+
+/* Small screens (mobile phones, less than 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        margin-top: 3rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .header_container {
+        padding: 0 10px;
+    }
+
+    .logo img {
+        max-height: 40px;
+    }
+}
+
+/* Medium screens (tablets, between 768px and 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .nav-list {
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin-right: 15px;
+    }
+
+    .logo img {
+        max-height: 45px;
+    }
+
+    .search-bar input {
+        width: 70%;
+    }
+}
+
+/* Large screens (desktop, more than 1024px) */
+@media screen and (min-width: 1024px) {
+    .header_container {
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+
+    .nav-list {
+        justify-content: flex-start;
+    }
+
+    .search-bar input {
+        width: 300px;
+    }
+}

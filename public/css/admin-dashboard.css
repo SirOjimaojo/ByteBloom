@@ -1,0 +1,360 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff; /* Site blue color */
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.admin-dashboard {
+    display: flex;
+    height: 100%; /* Adjust height to account for header */
+    background-color: #fff;
+}
+
+.sidebar {
+    width: 20%; /* Reduced width */
+    background-color: #dcdcdc;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #007bff;
+    border-radius: 2%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 70px; /* Increased space between items */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background-color: #007bff;
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar ul li:hover a,
+.sidebar ul li.active a {
+    color: #fff;
+}
+
+.main-content {
+    width: 80%; /* Adjusted to fit the new sidebar width */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background for content area */
+}
+
+.review-content h2 {
+    color: #007bff;
+
+}
+
+.review-content p {
+    color: #007bff;
+    font-size: 2rem;
+}
+
+.progress-section,
+.stats-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.progress-item,
+.stats-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-item{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.progress-item:last-child,
+.stats-item:last-child {
+    margin-right: 0;
+}
+
+#users-by-country {
+    list-style: none;
+    padding: 0;
+}
+
+#users-by-country li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loader-container {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.big-loader, .small-loader {
+    position: absolute;
+    border: 4px solid #007bff;
+    border-top: 4px solid rgb(228, 92, 115);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.big-loader {
+    width: 50px;
+    height: 50px;
+    animation-duration: 4s; /* Slower speed */
+}
+
+.small-loader {
+    width: 25px;
+    height: 25px;
+    top: 12.5px;
+    left: 12.5px;
+    animation-direction: reverse; /* Spinning in opposite direction */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Styling for the form container */
+.post-competition-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for form headings */
+.post-competition-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling for form labels */
+.post-competition-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling for form inputs and textarea */
+.post-competition-content input[type="text"],
+.post-competition-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Styling for file input */
+.post-competition-content input[type="file"] {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Styling for the submit button */
+.post-competition-content button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add a hover effect to the submit button */
+.post-competition-content button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the reports content container */
+.reports-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for report sections */
+.report-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Styling for section headings */
+.report-section h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Styling for report data */
+.report-section p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.users-log-content {
+    padding: 20px;
+}
+
+#user-log-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#user-log-table th, #user-log-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#user-log-table th {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+#user-log-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#user-log-table tr:hover {
+    background-color: #ddd;
+}
+
+
+
+/* Responsive styling */
+@media (max-width: 768px) {
+
+    .post-competition-content {
+        padding: 15px;
+    }
+
+    .post-competition-content input[type="text"],
+    .post-competition-content textarea {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .post-competition-content button[type="submit"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .reports-content {
+        padding: 15px;
+    }
+
+    .report-section {
+        padding: 10px;
+    }
+
+    .report-section h3 {
+        font-size: 18px;
+    }
+
+    .report-section p {
+        font-size: 14px;
+    }
+}
+
+
+/* Styling for the Newsletter section */
+.newsletter-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-content h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.stats-section p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.user-data-section {
+    margin-top: 20px;
+}
+
+.user-data-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-data-section th, .user-data-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.user-data-section th {
+    background-color: #007bff;
+    color: white;
+}
+
+.user-data-section tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.user-data-section tr:hover {
+    background-color: #ddd;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <div class="admin-dashboard">
+        <div class="sidebar">
+            <ul>
+                <li id="review"><a href="#">Review</a></li>
+                <li id="post-competition"><a href="#">Post Competition</a></li>
+                <li id="reports"><a href="#">Reports</a></li>
+                <li id="users-log"><a href="#">Users Log</a></li>
+                <li id="announcement"><a href="#">Announcement</a></li>
+                <li id="newsletter"><a href="#">Newsletter</a></li> <!-- Added Newsletter -->
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <!-- Content for each section will go here -->
+            <div class="review-content" id="review-content">
+                <h2>Site Progress</h2>
+                <div class="progress-section">
+                    <div class="progress-item">
+                        <p id="visits-7-days"></p>
+                        <h3>Visits in Last 7 Days</h3>
+                        <div class="loader-container">
+                            <div class="big-loader"></div>
+                            <div class="small-loader"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <p id="progress-28-days"></p>
+                        <h3>Progress in Last 28 Days</h3>
+                        <div class="loader-container">
+                            <div class="big-loader"></div>
+                            <div class="small-loader"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-section">
+                    <div class="stats-item">
+                        <p id="total-users"></p>
+                        <h3>Total Users</h3>
+                        <div class="loader-container">
+                            <div class="big-loader"></div>
+                            <div class="small-loader"></div>
+                        </div>
+                    </div>
+                    <div class="stats-item">
+                        <p id="total-countries"></p>
+                        <h3>Countries Visiting</h3>
+                        <div class="loader-container">
+                            <div class="big-loader"></div>
+                            <div class="small-loader"></div>
+                        </div>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Users by Country</h3>
+                        <div class="loader-container">
+                            <div class="big-loader"></div>
+                            <div class="small-loader"></div>
+                        </div>
+                        <ul id="users-by-country"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="reports-content" id="reports-content">
+                <h2>Website Reports</h2>
+                <!-- User Activity Section -->
+                <div class="report-section">
+                    <h3>User Activity</h3>
+                    <p>New Users: <span id="new-users">0</span></p>
+                    <p>Active Users: <span id="active-users">0</span></p>
+                    <p>User Retention Rate: <span id="retention-rate">0%</span></p>
+                    <p>User Demographics: <span id="user-demographics">Loading...</span></p>
+                </div>
+                <!-- Content Performance Section -->
+                <div class="report-section">
+                    <h3>Content Performance</h3>
+                    <p>Most Viewed Posts: <span id="most-viewed-posts">Loading...</span></p>
+                    <p>Most Liked Posts: <span id="most-liked-posts">Loading...</span></p>
+                    <p>Most Commented Posts: <span id="most-commented-posts">Loading...</span></p>
+                    <p>Top Authors by Engagement: <span id="top-authors">Loading...</span></p>
+                </div>
+                <!-- Engagement Metrics Section -->
+                <div class="report-section">
+                    <h3>Engagement Metrics</h3>
+                    <p>Total Likes: <span id="total-likes">0</span></p>
+                    <p>Total Comments: <span id="total-comments">0</span></p>
+                    <p>Total Shares: <span id="total-shares">0</span></p>
+                    <p>Average Engagement per Post: <span id="avg-engagement">0%</span></p>
+                    <p>Engagement Trends: <span id="engagement-trends">Loading...</span></p>
+                </div>
+                <!-- Competition Participation Section -->
+                <div class="report-section">
+                    <h3>Competition Participation</h3>
+                    <p>Active Competitions: <span id="active-competitions">0</span></p>
+                    <p>Total Entries: <span id="total-entries">0</span></p>
+                    <p>Winners: <span id="winners">Loading...</span></p>
+                    <p>Prize Distribution: <span id="prize-distribution">Loading...</span></p>
+                </div>
+            </div>
+            
+            <!-- Announcement Form -->
+            <div class="announcement-content" id="announcement-content">
+                <h2>Make an Announcement</h2>
+                <form id="announcementForm">
+                    <label for="announcementTitle">Title:</label>
+                    <input type="text" id="announcementTitle" name="title" required>
+                    <br>
+                    <label for="announcementMessage">Message:</label>
+                    <textarea id="announcementMessage" name="message" required></textarea>
+                    <br>
+                    <button type="submit">Send Announcement</button>
+                </form>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-content" id="newsletter-content">
+                <h2>Newsletter Subscription</h2>
+                <div class="stats-section">
+                    <p>Total Registered Users: <span id="total-registered-users">0</span></p>
+                    <p>Subscribed to Newsletter: <span id="subscribed-users">0</span></p>
+                    <p>Not Subscribed: <span id="not-subscribed">0</span></p>
+                </div>
+                <div class="user-data-section">
+                    <h3>Registered Users Data</h3>
+                    <table id="registered-users-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

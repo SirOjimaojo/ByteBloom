@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBloom Blog</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/blogstyles.css">
+</head>
+<body>
+   <!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="./img/logo.png" alt="ByteBloom Logo" title="ByteBloom">
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="../index.html" title="Home">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" id="dropdown-toggle" title="Categories">Categories <span class="dropdown-arrow">&#9662;</span></a>
+                    <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="technology.html" title="Technology">Technology</a></li>
+                        <li><a href="Health.html" title="Health & Wellness">Health & Wellness</a></li>
+                        <li><a href="lifestyle.html" title="Lifestyle">Lifestyle</a></li>
+                        <li><a href="entertainment.html" title="Entertainment">Entertainment</a></li>
+                        <li><a href="business.html" title="Business">Business</a></li>
+                        <li><a href="fashion.html" title="Fashion & Beauty">Fashion & Beauty</a></li>
+                        <li><a href="sustainability.html" title="Sustainability">Sustainability</a></li>
+                        <li><a href="DIY.html" title="DIY & Crafts">DIY & Crafts</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="/index.html#contact" title="Contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="profile-icon">
+            <!-- New profile icon -->
+            <div id="profile-toggle" title="User Profile" class="circle-icon">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="user-dropdown" id="user-dropdown">
+                <p id="user-name">John Doe</p> <!-- Example user name -->
+                <ul>
+                    <li><a href="#" id="my-posts" title="My Posts">My Posts</a></li>
+                    <li><a href="#" id="earnings" title="Earnings">Earnings</a></li>
+                    <li><a href="#" id="notifications" title="Notifications">Notifications</a></li>
+                    <li><a href="#" id="competition" title="Competition">Competition</a></li>
+                    <li><a href="#" id="forum" title="Forum">Forum</a></li>
+                    <li><a href="#" id="logout" title="Logout"><i class="bx bx-log-out"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Modals for each dropdown item -->
+        <div id="myPostsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>My Posts</h2>
+                <div id="my-posts-content">
+                    <!-- User posts will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="earningsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" class="close" onclick="closeModal()">&times;</span>
+                <h2>Earnings</h2>
+                <div id="earnings-content">
+                    <!-- User earnings will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="notificationsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Notifications</h2>
+                <div id="notifications-content">
+                    <!-- User notifications will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="competitionModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Competition</h2>
+                <div id="competition-content">
+                    <!-- Admin posted competitions will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="forumModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Forum</h2>
+                <p>Coming Soon</p>
+            </div>
+        </div>
+        
+        
+        <div class="search-bar">
+            <form action="/public/view/search-results.ejs" method="GET">
+                <input type="text" name="query" placeholder="Search..." title="Search">
+                <button type="submit" title="Search"><i class='bx bx-search'></i></button>
+            </form>
+        </div>
+        <div class="write-blog">
+            <button class="btn-write" id="write-blog-btn" title="Write Blog">Write Blog</button>
+        </div>
+    </div>
+    <div id="blogModal" class="modal">
+        <div class="modal-content">
+            <span class="close" class="close" onclick="closeModal()">&times;</span>
+            <form id="blogForm">
+                <h2>Write a New Blog</h2>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+                <label for="thumbnail">Upload Thumbnail:</label>
+                <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+                <button type="submit">Post Blog</button>
+            </form>
+        </div>
+    </div>      
+</header>
+
+    
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Welcome to ByteBloom</h1>
+            <p>Your ultimate destination for insightful blog posts and updates.</p>
+            <a href="/post.html" class="btn-cta" title="Explore Posts">Explore Posts</a>
+        </div>
+    </section>
+    
+   <!-- Trending Posts Section -->
+    <section class="trending-posts">
+        <h2>Trending Posts</h2>
+        <div class="blog-posts" id="trending-posts-container">
+        <!-- Trending posts will be dynamically inserted here -->
+        </div>
+    </section>
+  
+  <!-- Latest Posts Section -->
+  <section class="latest-posts">
+    <h2>Latest Posts</h2>
+    <div class="blog-posts" id="latest-posts-container">
+      <!-- Latest posts will be dynamically inserted here -->
+    </div>
+  </section>
+
+    <!-- Newsletter Modal -->
+<div id="newsletterModal" class="newsletter-modal">
+    <div class="newsletter-modal-content">
+        <span class="newsletter-close" onclick="closeNewsletterModal()">&times;</span>
+        <h2>Subscribe to our Newsletter</h2>
+        <form id="newsletterForm" action="/newsletter_signup.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" title="Subscribe">Subscribe</button>
+        </form>
+    </div>
+</div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ByteBloom. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/blog.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+
+        function isSubscribed() {
+            return document.cookie.split(';').some((item) => item.trim().startsWith('subscribed='));
+        }
+        
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+        
+        // Function to show the newsletter modal
+        function showNewsletterModal() {
+            document.getElementById("newsletterModal").style.display = "block";
+        }
+        
+        // Function to close the newsletter modal
+        function closeNewsletterModal() {
+            document.getElementById("newsletterModal").style.display = "none";
+        }
+        
+        // Check subscription status and set interval for the modal
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!isSubscribed()) {
+                setTimeout(showNewsletterModal, 1000); // Show after 1 second for testing; change to 30 minutes (1800000 ms) in production
+                setInterval(function() {
+                    if (!isSubscribed()) {
+                        showNewsletterModal();
+                    }
+                }, 1800000); // 30 minutes
+            }
+        
+            // Handle form submission
+            document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const email = event.target.email.value;
+        
+                // Send AJAX request to server to save email
+                fetch("newsletter_signup.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        setCookie("subscribed", "true", 365); // Set subscribed cookie for 1 year
+                        closeNewsletterModal();
+                        alert("Thank you for subscribing!");
+                    } else {
+                        alert("There was an error. Please try again.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });       
+    </script>
+    
+</body>
+</html>
